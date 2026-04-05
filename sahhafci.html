@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahhafci BookCafe | Baku</title>
+<meta name="description" content="Sahhafci BookCafe in Baku is a warm literary cafe with books, coffee, desserts, events, and a refined atmosphere.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#171718;--bg-soft:#232323;--panel:#1f1f20;--cream:#f4efe8;--text:#d4c9bb;--muted:#988779;--line:rgba(255,255,255,.1);--gold:#988779;--white:#fff;--container:min(1348px,calc(100% - 40px))}
+html{scroll-behavior:smooth}
+body{font-family:"Jost",sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button,input,textarea{font:inherit}
+.container{width:var(--container);margin:0 auto}
+.lang-bar{background:#111;border-bottom:1px solid rgba(255,255,255,.06)}
+.lang-bar__inner{width:var(--container);margin:0 auto;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.top-note{font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--muted)}
+.lang-switch{display:flex;gap:8px}
+.lang-btn{border:1px solid var(--line);background:transparent;color:var(--text);min-width:44px;padding:7px 10px;text-transform:uppercase;font-size:11px;letter-spacing:.2em;cursor:pointer;transition:.3s ease}
+.lang-btn.active,.lang-btn:hover{color:var(--white);border-color:var(--gold);background:rgba(152,135,121,.12)}
+.site-header{position:sticky;top:0;z-index:40;background:rgba(23,23,24,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{width:var(--container);margin:0 auto;min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-family:"Cormorant Garamond",serif;font-size:34px;line-height:1;font-weight:500;letter-spacing:.02em}
+.brand span{color:var(--gold);font-style:italic}
+.nav-links{display:flex;align-items:center;gap:34px;list-style:none}
+.nav-links a{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--text);transition:color .3s ease}
+.nav-links a:hover{color:var(--white)}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 34px;border:1px solid var(--white);text-transform:uppercase;letter-spacing:.18em;font-size:12px;transition:.35s ease}
+.btn-primary{background:var(--gold);border-color:var(--gold);color:#111}
+.btn-primary:hover{background:var(--white);border-color:var(--white)}
+.btn-outline{border-color:rgba(255,255,255,.28);color:var(--white)}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
+.menu-toggle{display:none;width:48px;height:48px;border:1px solid var(--line);background:transparent;color:var(--white);cursor:pointer}
+.hero{position:relative;min-height:calc(100vh - 134px);overflow:hidden}
+.hero-slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .8s ease}
+.hero-slide.active{opacity:1;pointer-events:auto}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.04);filter:saturate(.88) contrast(1.08) brightness(.72)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,15,.9) 0%,rgba(14,14,15,.58) 42%,rgba(14,14,15,.34) 100%),linear-gradient(180deg,rgba(14,14,15,.08),rgba(14,14,15,.54))}
+.hero-overlay::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 34%,rgba(255,219,165,.16),transparent 22%),radial-gradient(circle at 72% 26%,rgba(255,244,214,.1),transparent 18%),radial-gradient(circle at 82% 78%,rgba(152,135,121,.18),transparent 24%)}
+.hero-overlay::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.04),transparent 28%,transparent 72%,rgba(0,0,0,.24))}
+.hero-content{position:relative;z-index:2;width:var(--container);min-height:calc(100vh - 134px);margin:0 auto;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:72px 0}
+.hero-content::after{content:"";position:absolute;right:4%;bottom:14%;width:min(380px,34vw);height:min(380px,34vw);border-radius:50%;background:radial-gradient(circle,rgba(255,237,201,.08) 0%,rgba(255,237,201,.03) 38%,transparent 72%);filter:blur(8px);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--gold);letter-spacing:.45em;text-transform:uppercase;font-size:12px;margin-bottom:26px}
+.eyebrow::before{content:"";width:42px;height:1px;background:var(--gold)}
+.hero-title{font-family:"Cormorant Garamond",serif;font-size:clamp(56px,9vw,104px);line-height:.9;font-weight:500;text-transform:uppercase;max-width:760px}
+.hero-title em{color:var(--gold);font-style:normal;display:block}
+.hero-text{max-width:520px;color:var(--text);font-size:17px;margin:28px 0 38px}
+.hero-slide--compact .hero-title{max-width:680px;font-size:clamp(48px,7.2vw,84px);line-height:.96}
+.hero-slide--compact .hero-text{max-width:460px}
+.hero-slide--compact .hero-actions{margin-bottom:56px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.hero-nav{position:absolute;right:26px;bottom:34px;z-index:3;display:flex;gap:10px}
+.hero-dot{width:54px;height:2px;background:rgba(255,255,255,.2);border:none;cursor:pointer}
+.hero-dot.active{background:var(--gold)}
+.section{padding:120px 0}
+.section-head{max-width:700px;margin-bottom:56px}
+.section-title{font-family:"Cormorant Garamond",serif;font-size:clamp(42px,5vw,62px);line-height:1;text-transform:uppercase;font-weight:500;margin-bottom:18px}
+.section-title em{color:var(--gold);font-style:normal}
+.section-text{color:var(--text);font-size:17px}
+.about{display:grid;grid-template-columns:1fr 1fr}
+.about-media{min-height:760px;background:url("https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat}
+.about-copy{background:#efebe4;color:#1a1a1a;padding:100px min(7vw,90px);display:flex;flex-direction:column;justify-content:center}
+.about-copy .eyebrow{color:var(--gold)}
+.about-copy .section-title{color:#111}
+.about-copy .section-text{color:#5d5145}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:42px;padding-top:30px;border-top:1px solid rgba(0,0,0,.08)}
+.stat strong{display:block;font-family:"Cormorant Garamond",serif;font-size:48px;color:#111}
+.stat span{color:#6c6054;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+.features{background:var(--bg-soft)}
+.feature-grid,.events-grid,.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature-card,.event-card,.testimonial{border:1px solid var(--line);padding:38px 34px;background:rgba(255,255,255,.02);transition:.35s ease}
+.feature-card:hover{transform:translateY(-6px);border-color:rgba(152,135,121,.45)}
+.feature-card h3,.event-card h3,.testimonial h3{font-family:"Cormorant Garamond",serif;font-size:34px;margin-bottom:12px}
+.feature-card p,.event-card p,.testimonial p{color:var(--text)}
+.menu-tabs{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.menu-tab{border:1px solid var(--line);background:transparent;color:var(--text);min-height:48px;padding:0 22px;text-transform:uppercase;letter-spacing:.18em;font-size:12px;cursor:pointer}
+.menu-tab.active,.menu-tab:hover{background:var(--gold);color:#111;border-color:var(--gold)}
+.menu-panel{display:none;grid-template-columns:repeat(2,1fr);gap:28px}
+.menu-panel.active{display:grid}
+.menu-card{border:1px solid var(--line);padding:34px 30px;background:rgba(255,255,255,.02)}
+.menu-item{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.menu-item:last-child{border-bottom:none}
+.menu-item span{color:var(--cream)}
+.menu-item .line{border-bottom:1px dashed rgba(255,255,255,.14);transform:translateY(2px)}
+.menu-item strong{color:var(--gold);font-weight:500}
+.atmosphere{background:var(--bg-soft)}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:260px;gap:18px}
+.gallery-item{position:relative;overflow:hidden}
+.gallery-item:nth-child(1){grid-row:span 2}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55))}
+.gallery-caption{position:absolute;left:18px;right:18px;bottom:18px;z-index:1}
+.gallery-caption strong{display:block;font-family:"Cormorant Garamond",serif;font-size:28px}
+.gallery-caption span{color:var(--text);font-size:14px}
+.event-date{display:inline-block;margin-bottom:18px;color:var(--gold);letter-spacing:.25em;text-transform:uppercase;font-size:12px}
+.quote-band{padding:100px 20px;text-align:center;background:#111;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.quote-band blockquote{max-width:920px;margin:0 auto;font-family:"Cormorant Garamond",serif;font-size:clamp(36px,5vw,60px);line-height:1.08;color:var(--cream)}
+.quote-band cite{display:block;margin-top:22px;color:var(--gold);font-style:normal;letter-spacing:.3em;text-transform:uppercase;font-size:12px}
+.visit{display:grid;grid-template-columns:1.05fr .95fr}
+.visit-map iframe{width:100%;height:100%;min-height:700px;border:0;filter:grayscale(1) contrast(1.1) brightness(.82)}
+.visit-info{padding:100px min(7vw,90px);display:flex;flex-direction:column;justify-content:center}
+.visit-list{display:grid;gap:22px;margin:34px 0 38px}
+.visit-row{display:grid;grid-template-columns:130px 1fr;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.visit-row small{color:var(--gold);letter-spacing:.22em;text-transform:uppercase;font-size:11px}
+.visit-row div,.visit-row a{color:var(--text)}
+.instagram{background:var(--bg-soft)}
+.instagram-bar{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:34px}
+.insta-link{color:var(--gold);font-size:30px;font-family:"Cormorant Garamond",serif}
+.insta-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.insta-grid img{width:100%;aspect-ratio:1/1;object-fit:cover}
+footer{padding:70px 0 30px}
+.footer-top{width:var(--container);margin:0 auto;display:grid;grid-template-columns:1.2fr repeat(3,.8fr);gap:30px;padding-bottom:38px;border-bottom:1px solid var(--line)}
+.footer-logo{font-family:"Cormorant Garamond",serif;font-size:42px;margin-bottom:16px}
+.footer-logo span{color:var(--gold);font-style:italic}
+.footer-top p,.footer-top li,.footer-top a{color:var(--text)}
+.footer-col-title{display:block;margin-bottom:18px;color:var(--gold);letter-spacing:.24em;text-transform:uppercase;font-size:12px}
+.footer-col ul{list-style:none;display:grid;gap:10px}
+.footer-bottom{width:var(--container);margin:0 auto;padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-social{display:flex;gap:20px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (max-width:1100px){.nav-links{display:none;position:absolute;left:20px;right:20px;top:100%;background:rgba(23,23,24,.98);border:1px solid var(--line);padding:22px;flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.menu-toggle{display:inline-flex;align-items:center;justify-content:center}.feature-grid,.events-grid,.testimonials,.footer-top,.menu-panel{grid-template-columns:1fr 1fr}.about,.visit{grid-template-columns:1fr}.visit-map iframe,.about-media{min-height:520px}}
+@media (max-width:760px){.lang-bar__inner,.nav,.container,.footer-top,.footer-bottom{width:min(100% - 24px,1348px)}.top-note{display:none}.brand{font-size:28px}.nav-actions{gap:10px}.hero-content{padding:56px 0 100px}.hero-title{font-size:40px;line-height:.98;max-width:100%}.hero-text{font-size:14px;max-width:100%}.hero-slide--compact .hero-title{font-size:36px;max-width:100%}.hero-slide--compact .hero-text{max-width:100%}.hero-actions{flex-direction:column;align-items:stretch}.btn{width:100%;font-size:11px;padding:0 24px}.section{padding:84px 0}.section-title{font-size:34px;line-height:1.06}.section-text{font-size:15px}.feature-card h3,.event-card h3,.testimonial h3{font-size:28px}.gallery-caption strong{font-size:24px}.gallery-caption span{font-size:13px}.insta-link{font-size:24px}.footer-logo{font-size:34px}.about-copy,.visit-info{padding:70px 18px}.about-stats,.feature-grid,.menu-panel,.events-grid,.testimonials,.footer-top,.insta-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr;grid-auto-rows:230px}.gallery-item:nth-child(1){grid-row:auto}.visit-row{grid-template-columns:1fr}.instagram-bar{flex-direction:column;align-items:flex-start}.footer-bottom{flex-direction:column;align-items:flex-start}}
+@media (max-width:420px){.hero-title{font-size:34px}.hero-slide--compact .hero-title{font-size:31px}.section-title{font-size:29px}.feature-card h3,.event-card h3,.testimonial h3{font-size:24px}.gallery-caption strong{font-size:21px}.footer-logo{font-size:30px}}
+</style>
+</head>
+<body>
+<div class="lang-bar">
+  <div class="lang-bar__inner">
+    <div class="top-note t" data-az="Bak&#305;da kitab, q&#601;hv&#601; v&#601; sakit ax&#351;amlar" data-en="Books, coffee, and quiet evenings in Baku">Bak&#305;da kitab, q&#601;hv&#601; v&#601; sakit ax&#351;amlar</div>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="az" type="button">AZ</button>
+      <button class="lang-btn" data-lang="en" type="button">EN</button>
+    </div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="nav" id="navbar">
+    <a class="brand" href="#top">Sahhafci <span>BookCafe</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="t" data-az="Haqq&#305;m&#305;zda" data-en="About">Haqq&#305;m&#305;zda</a></li>
+      <li><a href="#features" class="t" data-az="M&#601;kan" data-en="Spaces">M&#601;kan</a></li>
+      <li><a href="#menu" class="t" data-az="Menyu" data-en="Menu">Menyu</a></li>
+      <li><a href="#events" class="t" data-az="T&#601;dbirl&#601;r" data-en="Events">T&#601;dbirl&#601;r</a></li>
+      <li><a href="#visit" class="t" data-az="&#399;laq&#601;" data-en="Contact">&#399;laq&#601;</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn-primary t" href="#visit" data-az="Rezerv et" data-en="Reserve">Rezerv et</a>
+      <button class="menu-toggle" id="menuToggle" type="button">&#9776;</button>
+    </div>
+  </div>
+</header>
+<main id="top">
+  <section class="hero">
+    <article class="hero-slide active">
+      <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1507914372368-b2b085b925a1?auto=format&fit=crop&w=1800&q=80')"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="eyebrow t" data-az="Sakit, z&#601;rif, &#601;d&#601;bi" data-en="Quiet, refined, literary">Sakit, z&#601;rif, &#601;d&#601;bi</div>
+        <h1 class="hero-title t" data-az="Bak&#305;da <em>kitab v&#601; q&#601;hv&#601;</em> il&#601; dolu bir m&#601;kan" data-en="A place in Baku filled with <em>books and coffee</em>">Bak&#305;da <em>kitab v&#601; q&#601;hv&#601;</em> il&#601; dolu bir m&#601;kan</h1>
+        <p class="hero-text t" data-az="Sahhafc&#305; BookCafe qaranl&#305;q taxta r&#601;fl&#601;r, k&#246;hn&#601; s&#601;hif&#601;l&#601;rin ruhu, desert qoxusu v&#601; yorulmayan s&#246;hb&#601;tl&#601;r &#252;&#231;&#252;n yarad&#305;l&#305;b." data-en="Sahhafci BookCafe was made for dark wooden shelves, the spirit of old pages, warm desserts, and conversations that refuse to hurry.">Sahhafc&#305; BookCafe qaranl&#305;q taxta r&#601;fl&#601;r, k&#246;hn&#601; s&#601;hif&#601;l&#601;rin ruhu, desert qoxusu v&#601; yorulmayan s&#246;hb&#601;tl&#601;r &#252;&#231;&#252;n yarad&#305;l&#305;b.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary t" href="#menu" data-az="Menyuya bax" data-en="View Menu">Menyuya bax</a>
+          <a class="btn btn-outline t" href="#events" data-az="T&#601;dbirl&#601;r" data-en="See Events">T&#601;dbirl&#601;r</a>
+        </div>
+      </div>
+    </article>
+    <article class="hero-slide">
+      <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=1800&q=80')"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="eyebrow t" data-az="H&#601;r fincanda sakitlik" data-en="Calm in every cup">H&#601;r fincanda sakitlik</div>
+        <h1 class="hero-title t" data-az="K&#246;hn&#601; kitablar, <em>isti espresso</em> v&#601; uzun ax&#351;amlar" data-en="Old books, <em>warm espresso</em>, and long evenings">K&#246;hn&#601; kitablar, <em>isti espresso</em> v&#601; uzun ax&#351;amlar</h1>
+        <p class="hero-text t" data-az="G&#252;nortadan gec&#601;y&#601; q&#601;d&#601;r oxumaq, yazmaq, dinl&#601;m&#601;k v&#601; sevdiyin insanla eyni masan&#305; b&#246;l&#252;&#351;m&#601;k &#252;&#231;&#252;n." data-en="From afternoon to nightfall, made for reading, writing, listening, and sharing the same table with someone you like.">G&#252;nortadan gec&#601;y&#601; q&#601;d&#601;r oxumaq, yazmaq, dinl&#601;m&#601;k v&#601; sevdiyin insanla eyni masan&#305; b&#246;l&#252;&#351;m&#601;k &#252;&#231;&#252;n.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary t" href="#visit" data-az="Masa rezerv et" data-en="Reserve Table">Masa rezerv et</a>
+          <a class="btn btn-outline t" href="#gallery" data-az="Atmosfer" data-en="Atmosphere">Atmosfer</a>
+        </div>
+      </div>
+    </article>
+    <article class="hero-slide hero-slide--compact">
+      <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1800&q=80')"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="eyebrow t" data-az="Gec&#601; i&#351;&#305;&#287;&#305; v&#601; r&#601;fl&#601;r" data-en="Evening light and shelves">Gec&#601; i&#351;&#305;&#287;&#305; v&#601; r&#601;fl&#601;r</div>
+        <h1 class="hero-title t" data-az="Mum tonlar&#305;, <em>sakit k&#252;ncl&#601;r</em> v&#601; xat&#305;rlanan g&#246;r&#252;&#351;l&#601;r" data-en="Candle tones, <em>quiet corners</em>, and memorable meetings">Mum tonlar&#305;, <em>sakit k&#252;ncl&#601;r</em> v&#601; xat&#305;rlanan g&#246;r&#252;&#351;l&#601;r</h1>
+        <p class="hero-text t" data-az="Gec&#601;d&#601; d&#601; yum&#351;aq qalan bir m&#601;kan: kitab r&#601;fl&#601;ri, dessert vitrinl&#601;ri, q&#601;hv&#601;nin iysi v&#601; isti i&#351;&#305;q l&#601;k&#601;l&#601;ri." data-en="A place that stays soft even at night: book shelves, dessert vitrines, the scent of coffee, and pools of warm light.">Gec&#601;d&#601; d&#601; yum&#351;aq qalan bir m&#601;kan: kitab r&#601;fl&#601;ri, dessert vitrinl&#601;ri, q&#601;hv&#601;nin iysi v&#601; isti i&#351;&#305;q l&#601;k&#601;l&#601;ri.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary t" href="#gallery" data-az="Fotolara bax" data-en="View Gallery">Fotolara bax</a>
+          <a class="btn btn-outline t" href="#visit" data-az="Biz&#601; g&#601;l" data-en="Visit Us">Biz&#601; g&#601;l</a>
+        </div>
+      </div>
+    </article>
+    <div class="hero-nav">
+      <button class="hero-dot active" type="button" data-slide="0" aria-label="Slide 1"></button>
+      <button class="hero-dot" type="button" data-slide="1" aria-label="Slide 2"></button>
+      <button class="hero-dot" type="button" data-slide="2" aria-label="Slide 3"></button>
+    </div>
+  </section>
+  <section class="about" id="about">
+    <div class="about-media"></div>
+    <div class="about-copy">
+      <div class="eyebrow t" data-az="Sahhafc&#305; haqq&#305;nda" data-en="About Sahhafci">Sahhafc&#305; haqq&#305;nda</div>
+      <h2 class="section-title t" data-az="Bir kitab evi kimi hiss olunan <em>kafe</em>" data-en="A <em>cafe</em> that feels like a book house">Bir kitab evi kimi hiss olunan <em>kafe</em></h2>
+      <p class="section-text t" data-az="Sahhafc&#305; BookCafe Bak&#305;n&#305;n m&#601;rk&#601;zind&#601; kitab m&#601;d&#601;niyy&#601;tini, q&#601;hv&#601; ritual&#305;n&#305; v&#601; yum&#351;aq atmosferi bir araya g&#601;tir&#601;n m&#601;kand&#305;r. Burada h&#601;r k&#252;nc oxumaq, h&#601;r masa s&#246;hb&#601;t, h&#601;r detal is&#601; rahatlamaq &#252;&#231;&#252;n d&#252;&#351;&#252;n&#252;l&#252;b." data-en="Sahhafci BookCafe is a place in central Baku where book culture, coffee ritual, and a soft atmosphere meet. Every corner is made for reading, every table for conversation, and every detail for slowing down.">Sahhafc&#305; BookCafe Bak&#305;n&#305;n m&#601;rk&#601;zind&#601; kitab m&#601;d&#601;niyy&#601;tini, q&#601;hv&#601; ritual&#305;n&#305; v&#601; yum&#351;aq atmosferi bir araya g&#601;tir&#601;n m&#601;kand&#305;r. Burada h&#601;r k&#252;nc oxumaq, h&#601;r masa s&#246;hb&#601;t, h&#601;r detal is&#601; rahatlamaq &#252;&#231;&#252;n d&#252;&#351;&#252;n&#252;l&#252;b.</p>
+      <div class="about-stats">
+        <div class="stat"><strong>5K+</strong><span class="t" data-az="Kitab sev&#601;r" data-en="Book Lovers">Kitab sev&#601;r</span></div>
+        <div class="stat"><strong>30K+</strong><span class="t" data-az="Instagram izl&#601;yici" data-en="Instagram Followers">Instagram izl&#601;yici</span></div>
+        <div class="stat"><strong>11:00-23:00</strong><span class="t" data-az="H&#601;r g&#252;n" data-en="Daily">H&#601;r g&#252;n</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="section features" id="features">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow t" data-az="Sahhafc&#305; m&#601;kan&#305;" data-en="The Sahhafci Space">Sahhafc&#305; m&#601;kan&#305;</div>
+        <h2 class="section-title t" data-az="Bura sad&#601;c&#601; q&#601;hv&#601; yeri deyil, <em>ovqatd&#305;r</em>" data-en="Not just a coffee place, but a <em>mood</em>">Bura sad&#601;c&#601; q&#601;hv&#601; yeri deyil, <em>ovqatd&#305;r</em></h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card reveal">
+          <h3 class="t" data-az="Oxu gu&#351;&#601;l&#601;ri" data-en="Reading Corners">Oxu gu&#351;&#601;l&#601;ri</h3>
+          <p class="t" data-az="T&#601;k qalmaq, qeyd aparmaq v&#601; s&#601;hif&#601;l&#601;r aras&#305;nda itmək &#252;&#231;&#252;n s&#601;ssiz masalar." data-en="Quiet tables for being alone, writing notes, and getting lost between pages.">T&#601;k qalmaq, qeyd aparmaq v&#601; s&#601;hif&#601;l&#601;r aras&#305;nda itmək &#252;&#231;&#252;n s&#601;ssiz masalar.</p>
+        </article>
+        <article class="feature-card reveal">
+          <h3 class="t" data-az="Ev t&#601;am&#252;ll&#252; dadlar" data-en="House-made Flavors">Ev t&#601;am&#252;ll&#252; dadlar</h3>
+          <p class="t" data-az="Espresso, imza dessertl&#601;r v&#601; y&#252;ng&#252;l yem&#601;kl&#601;rl&#601; t&#601;mkinli menyu." data-en="A composed menu of espresso, signature desserts, and light dishes.">Espresso, imza dessertl&#601;r v&#601; y&#252;ng&#252;l yem&#601;kl&#601;rl&#601; t&#601;mkinli menyu.</p>
+        </article>
+        <article class="feature-card reveal">
+          <h3 class="t" data-az="T&#601;dbir ax&#351;amlar&#305;" data-en="Event Nights">T&#601;dbir ax&#351;amlar&#305;</h3>
+          <p class="t" data-az="Poeziya oxunu&#351;lar&#305;, akustik musiqi v&#601; m&#252;&#601;llif g&#246;r&#252;&#351;l&#601;ri il&#601; dolu ax&#351;amlar." data-en="Evenings shaped by poetry readings, acoustic music, and author gatherings.">Poeziya oxunu&#351;lar&#305;, akustik musiqi v&#601; m&#252;&#601;llif g&#246;r&#252;&#351;l&#601;ri il&#601; dolu ax&#351;amlar.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="menu">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow t" data-az="Menyu" data-en="Menu">Menyu</div>
+        <h2 class="section-title t" data-az="Q&#601;hv&#601;, &#231;ay v&#601; desertl&#601;rin <em>se&#231;imi</em>" data-en="A selection of <em>coffee</em>, tea, and desserts">Q&#601;hv&#601;, &#231;ay v&#601; desertl&#601;rin <em>se&#231;imi</em></h2>
+      </div>
+      <div class="menu-tabs">
+        <button class="menu-tab active t" data-target="coffee" data-az="Q&#601;hv&#601;" data-en="Coffee" type="button">Q&#601;hv&#601;</button>
+        <button class="menu-tab t" data-target="tea" data-az="&#199;ay" data-en="Tea" type="button">&#199;ay</button>
+        <button class="menu-tab t" data-target="food" data-az="Yem&#601;k" data-en="Food" type="button">Yem&#601;k</button>
+        <button class="menu-tab t" data-target="dessert" data-az="Dessert" data-en="Dessert" type="button">Dessert</button>
+      </div>
+      <div class="menu-panel active" id="coffee">
+        <div class="menu-card">
+          <div class="menu-item"><span>Espresso</span><span class="line"></span><strong>4 AZN</strong></div>
+          <div class="menu-item"><span>Americano</span><span class="line"></span><strong>5 AZN</strong></div>
+          <div class="menu-item"><span>Cappuccino</span><span class="line"></span><strong>7 AZN</strong></div>
+          <div class="menu-item"><span>Flat White</span><span class="line"></span><strong>8 AZN</strong></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-item"><span>Latte</span><span class="line"></span><strong>8 AZN</strong></div>
+          <div class="menu-item"><span>Mocha</span><span class="line"></span><strong>9 AZN</strong></div>
+          <div class="menu-item"><span>Iced Latte</span><span class="line"></span><strong>9 AZN</strong></div>
+          <div class="menu-item"><span>Spanish Latte</span><span class="line"></span><strong>10 AZN</strong></div>
+        </div>
+      </div>
+      <div class="menu-panel" id="tea">
+        <div class="menu-card">
+          <div class="menu-item"><span>Black Tea Pot</span><span class="line"></span><strong>6 AZN</strong></div>
+          <div class="menu-item"><span>Earl Grey</span><span class="line"></span><strong>7 AZN</strong></div>
+          <div class="menu-item"><span>Jasmine Green Tea</span><span class="line"></span><strong>7 AZN</strong></div>
+          <div class="menu-item"><span>Mint Tea</span><span class="line"></span><strong>7 AZN</strong></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-item"><span>Pomegranate Tea</span><span class="line"></span><strong>8 AZN</strong></div>
+          <div class="menu-item"><span>Chamomile Tea</span><span class="line"></span><strong>7 AZN</strong></div>
+          <div class="menu-item"><span>Cinnamon Apple Tea</span><span class="line"></span><strong>8 AZN</strong></div>
+          <div class="menu-item"><span>Chai Latte</span><span class="line"></span><strong>9 AZN</strong></div>
+        </div>
+      </div>
+      <div class="menu-panel" id="food">
+        <div class="menu-card">
+          <div class="menu-item"><span>Avocado Toast</span><span class="line"></span><strong>12 AZN</strong></div>
+          <div class="menu-item"><span>Chicken Caesar Wrap</span><span class="line"></span><strong>14 AZN</strong></div>
+          <div class="menu-item"><span>Turkey Sandwich</span><span class="line"></span><strong>13 AZN</strong></div>
+          <div class="menu-item"><span>Mushroom Toast</span><span class="line"></span><strong>12 AZN</strong></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-item"><span>Smoked Salmon Croissant</span><span class="line"></span><strong>14 AZN</strong></div>
+          <div class="menu-item"><span>Soup of the Day</span><span class="line"></span><strong>9 AZN</strong></div>
+          <div class="menu-item"><span>Cheese Plate</span><span class="line"></span><strong>15 AZN</strong></div>
+          <div class="menu-item"><span>Mini Breakfast Set</span><span class="line"></span><strong>16 AZN</strong></div>
+        </div>
+      </div>
+      <div class="menu-panel" id="dessert">
+        <div class="menu-card">
+          <div class="menu-item"><span>San Sebastian Cheesecake</span><span class="line"></span><strong>10 AZN</strong></div>
+          <div class="menu-item"><span>Tiramisu</span><span class="line"></span><strong>10 AZN</strong></div>
+          <div class="menu-item"><span>Chocolate Tart</span><span class="line"></span><strong>9 AZN</strong></div>
+          <div class="menu-item"><span>Carrot Cake</span><span class="line"></span><strong>9 AZN</strong></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-item"><span>Butter Croissant</span><span class="line"></span><strong>6 AZN</strong></div>
+          <div class="menu-item"><span>Biscotti Plate</span><span class="line"></span><strong>7 AZN</strong></div>
+          <div class="menu-item"><span>Red Velvet Slice</span><span class="line"></span><strong>10 AZN</strong></div>
+          <div class="menu-item"><span>Apple Cinnamon Pie</span><span class="line"></span><strong>9 AZN</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section atmosphere" id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow t" data-az="Atmosfer" data-en="Atmosphere">Atmosfer</div>
+        <h2 class="section-title t" data-az="R&#601;fl&#601;r, i&#351;&#305;q v&#601; sakitliyin <em>i&#231;ind&#601;</em>" data-en="Inside the <em>shelves</em>, light, and calm">R&#601;fl&#601;r, i&#351;&#305;q v&#601; sakitliyin <em>i&#231;ind&#601;</em></h2>
+      </div>
+      <div class="gallery">
+        <figure class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=80" alt="Book cafe shelves"><figcaption class="gallery-caption"><strong class="t" data-az="Oxu divar&#305;" data-en="Reading Wall">Oxu divar&#305;</strong><span class="t" data-az="K&#246;hn&#601; kitablar v&#601; isti i&#351;&#305;q." data-en="Old books and warm light.">K&#246;hn&#601; kitablar v&#601; isti i&#351;&#305;q.</span></figcaption></figure>
+        <figure class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80" alt="Coffee cup"><figcaption class="gallery-caption"><strong class="t" data-az="Sakit fincan" data-en="Quiet Cup">Sakit fincan</strong><span class="t" data-az="H&#601;r g&#252;n&#252;n yum&#351;aq ba&#351;lan&#287;&#305;c&#305;." data-en="A soft beginning to the day.">H&#601;r g&#252;n&#252;n yum&#351;aq ba&#351;lan&#287;&#305;c&#305;.</span></figcaption></figure>
+        <figure class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80" alt="Coffee and table"><figcaption class="gallery-caption"><strong class="t" data-az="Masa &#252;st&#252;" data-en="Shared Table">Masa &#252;st&#252;</strong><span class="t" data-az="S&#246;hb&#601;t v&#601; ikinci q&#601;hv&#601;." data-en="Conversation and a second coffee.">S&#246;hb&#601;t v&#601; ikinci q&#601;hv&#601;.</span></figcaption></figure>
+        <figure class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="Dessert and brunch"><figcaption class="gallery-caption"><strong class="t" data-az="Yum&#351;aq dadlar" data-en="Soft Flavors">Yum&#351;aq dadlar</strong><span class="t" data-az="Dessert, nahar v&#601; rahat tempo." data-en="Dessert, lunch, and a relaxed pace.">Dessert, nahar v&#601; rahat tempo.</span></figcaption></figure>
+        <figure class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80" alt="Person reading"><figcaption class="gallery-caption"><strong class="t" data-az="T&#601;k k&#252;nc" data-en="Private Corner">T&#601;k k&#252;nc</strong><span class="t" data-az="Oxumaq &#252;&#231;&#252;n ayr&#305; bir s&#601;s." data-en="A separate silence for reading.">Oxumaq &#252;&#231;&#252;n ayr&#305; bir s&#601;s.</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="events">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow t" data-az="T&#601;dbirl&#601;r" data-en="Events">T&#601;dbirl&#601;r</div>
+        <h2 class="section-title t" data-az="Ax&#351;amlar&#305;m&#305;z b&#601;z&#601;n daha da <em>s&#601;sl&#601;nir</em>" data-en="Some evenings become a little more <em>alive</em>">Ax&#351;amlar&#305;m&#305;z b&#601;z&#601;n daha da <em>s&#601;sl&#601;nir</em></h2>
+      </div>
+      <div class="events-grid">
+        <article class="event-card reveal">
+          <span class="event-date t" data-az="H&#601;r c&#252;m&#601; ax&#351;am&#305;" data-en="Every Friday Evening">H&#601;r c&#252;m&#601; ax&#351;am&#305;</span>
+          <h3 class="t" data-az="Poeziya Oxunu&#351;u" data-en="Poetry Reading">Poeziya Oxunu&#351;u</h3>
+          <p class="t" data-az="Mum i&#351;&#305;&#287;&#305;, sakit fon musiqisi v&#601; m&#252;asir Az&#601;rbaycan poeziyas&#305; il&#601; intim bir gec&#601;." data-en="An intimate night with candlelight, soft background music, and modern Azerbaijani poetry.">Mum i&#351;&#305;&#287;&#305;, sakit fon musiqisi v&#601; m&#252;asir Az&#601;rbaycan poeziyas&#305; il&#601; intim bir gec&#601;.</p>
+        </article>
+        <article class="event-card reveal">
+          <span class="event-date t" data-az="H&#601;r &#351;&#601;nb&#601;" data-en="Every Saturday">H&#601;r &#351;&#601;nb&#601;</span>
+          <h3 class="t" data-az="Canl&#305; Akustik Musiqi" data-en="Live Acoustic Music">Canl&#305; Akustik Musiqi</h3>
+          <p class="t" data-az="Yerli musiqi&#231;il&#601;rl&#601; sakit, z&#601;rif v&#601; uzun s&#246;hb&#601;tli bir ax&#351;am." data-en="A quiet and refined evening with local musicians and unhurried conversation.">Yerli musiqi&#231;il&#601;rl&#601; sakit, z&#601;rif v&#601; uzun s&#246;hb&#601;tli bir ax&#351;am.</p>
+        </article>
+        <article class="event-card reveal">
+          <span class="event-date t" data-az="Ayl&#305;q" data-en="Monthly">Ayl&#305;q</span>
+          <h3 class="t" data-az="M&#252;&#601;llifl&#601; G&#246;r&#252;&#351;" data-en="Author Meet & Greet">M&#252;&#601;llifl&#601; G&#246;r&#252;&#351;</h3>
+          <p class="t" data-az="Se&#231;ilmi&#351; yaz&#305;&#231;&#305;larla canl&#305; dialoq, imza saat&#305; v&#601; q&#305;sa sual-cavab g&#246;r&#252;&#351;&#252;." data-en="A live dialogue, signing hour, and short Q&A session with selected writers.">Se&#231;ilmi&#351; yaz&#305;&#231;&#305;larla canl&#305; dialoq, imza saat&#305; v&#601; q&#305;sa sual-cavab g&#246;r&#252;&#351;&#252;.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <div class="quote-band reveal">
+    <blockquote class="t" data-az="Bir kitab, bir fincan q&#601;hv&#601; - b&#601;z&#601;n b&#252;t&#252;n d&#252;nyadan daha &#231;ox &#351;ey laz&#305;m deyil." data-en="A book, a cup of coffee - sometimes you do not need more than that from the whole world.">Bir kitab, bir fincan q&#601;hv&#601; - b&#601;z&#601;n b&#252;t&#252;n d&#252;nyadan daha &#231;ox &#351;ey laz&#305;m deyil.</blockquote>
+    <cite>Sahhafci BookCafe</cite>
+  </div>
+  <section class="visit" id="visit">
+    <div class="visit-map">
+      <iframe src="https://www.google.com/maps?q=Z%C9%99rif%C9%99%20%C6%8Fliyeva%2053,%20Baku&z=15&output=embed" loading="lazy" title="Sahhafci location"></iframe>
+    </div>
+    <div class="visit-info">
+      <div class="eyebrow t" data-az="Biz&#601; g&#601;lin" data-en="Visit Us">Biz&#601; g&#601;lin</div>
+      <h2 class="section-title t" data-az="Sahhafci <em>haradad&#305;r?</em>" data-en="Where is <em>Sahhafci</em>?">Sahhafci <em>haradad&#305;r?</em></h2>
+      <div class="visit-list">
+        <div class="visit-row"><small class="t" data-az="&#220;nvan" data-en="Address">&#220;nvan</small><div>Z&#601;rif&#601; &#399;liyeva 53, Baku, Azerbaijan</div></div>
+        <div class="visit-row"><small class="t" data-az="Telefon" data-en="Phone">Telefon</small><div><a href="tel:+994773470717">+994 77 347 07 17</a></div></div>
+        <div class="visit-row"><small class="t" data-az="Saatlar" data-en="Hours">Saatlar</small><div class="t" data-az="H&#601;r g&#252;n - 11:00-23:00" data-en="Every day - 11:00-23:00">H&#601;r g&#252;n - 11:00-23:00</div></div>
+        <div class="visit-row"><small class="t" data-az="E-po&#231;t" data-en="Email">E-po&#231;t</small><div><a href="mailto:sahhafcibookcafe@gmail.com">sahhafcibookcafe@gmail.com</a></div></div>
+      </div>
+      <a class="btn btn-primary t" href="https://maps.google.com/?q=Z%C9%99rif%C9%99%20%C6%8Fliyeva%2053,%20Baku" target="_blank" rel="noopener noreferrer" data-az="Yol g&#246;st&#601;r" data-en="Get Directions">Yol g&#246;st&#601;r</a>
+    </div>
+  </section>
+  <section class="section instagram">
+    <div class="container">
+      <div class="instagram-bar reveal">
+        <div>
+          <div class="eyebrow t" data-az="Bizi izl&#601;yin" data-en="Follow Us">Bizi izl&#601;yin</div>
+          <h2 class="section-title">@sahhafcibookcafe</h2>
+        </div>
+        <a class="insta-link" href="https://www.instagram.com/sahhafcibookcafe/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+      <div class="insta-grid reveal">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80" alt="coffee">
+        <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=500&q=80" alt="cafe">
+        <img src="https://images.unsplash.com/photo-1507914372368-b2b085b925a1?auto=format&fit=crop&w=500&q=80" alt="books">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=500&q=80" alt="cup">
+        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=500&q=80" alt="interior">
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Sahhafci <span>BookCafe</span></div>
+      <p class="t" data-az="Bak&#305;n&#305;n kitab, q&#601;hv&#601; v&#601; yum&#351;aq s&#246;hb&#601;t &#252;&#231;&#252;n sevil&#601;n m&#601;kan&#305;. H&#601;r g&#252;n 11:00-dan 23:00-d&#601;k." data-en="Baku's warm place for books, coffee, and soft conversation. Open every day from 11:00 to 23:00.">Bak&#305;n&#305;n kitab, q&#601;hv&#601; v&#601; yum&#351;aq s&#246;hb&#601;t &#252;&#231;&#252;n sevil&#601;n m&#601;kan&#305;. H&#601;r g&#252;n 11:00-dan 23:00-d&#601;k.</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title t" data-az="Naviqasiya" data-en="Navigate">Naviqasiya</span>
+      <ul>
+        <li><a href="#about" class="t" data-az="Haqq&#305;m&#305;zda" data-en="About">Haqq&#305;m&#305;zda</a></li>
+        <li><a href="#menu" class="t" data-az="Menyu" data-en="Menu">Menyu</a></li>
+        <li><a href="#events" class="t" data-az="T&#601;dbirl&#601;r" data-en="Events">T&#601;dbirl&#601;r</a></li>
+        <li><a href="#visit" class="t" data-az="&#399;laq&#601;" data-en="Contact">&#399;laq&#601;</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title t" data-az="&#399;laq&#601;" data-en="Contact">&#399;laq&#601;</span>
+      <p><a href="tel:+994773470717">+994 77 347 07 17</a><br><a href="mailto:sahhafcibookcafe@gmail.com">sahhafcibookcafe@gmail.com</a></p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title t" data-az="M&#601;kan" data-en="Location">M&#601;kan</span>
+      <p>Z&#601;rif&#601; &#399;liyeva 53<br>Baku, Azerbaijan<br><br>11:00-23:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="t" data-az="&copy; 2026 Sahhafci BookCafe - Bak&#305;, Az&#601;rbaycan" data-en="&copy; 2026 Sahhafci BookCafe - Baku, Azerbaijan">&copy; 2026 Sahhafci BookCafe - Bak&#305;, Az&#601;rbaycan</div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/sahhafcibookcafe/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.facebook.com/sahhafcibookcafe/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://maps.google.com/?q=Z%C9%99rif%C9%99%20%C6%8Fliyeva%2053,%20Baku" target="_blank" rel="noopener noreferrer">Maps</a>
+    </div>
+  </div>
+</footer>
+<script>
+const langButtons=document.querySelectorAll(".lang-btn");
+const translatable=document.querySelectorAll(".t");
+const menuTabs=document.querySelectorAll(".menu-tab");
+const menuPanels=document.querySelectorAll(".menu-panel");
+const slides=document.querySelectorAll(".hero-slide");
+const dots=document.querySelectorAll(".hero-dot");
+const reveals=document.querySelectorAll(".reveal");
+const menuToggle=document.getElementById("menuToggle");
+const navLinks=document.getElementById("navLinks");
+function applyLanguage(lang){document.documentElement.lang=lang;translatable.forEach((el)=>{const value=el.getAttribute(`data-${lang}`);if(!value)return;if(value.includes("<em>")||value.includes("&#")||value.includes("&copy;")){el.innerHTML=value}else{el.textContent=value}});langButtons.forEach((btn)=>btn.classList.toggle("active",btn.dataset.lang===lang))}
+langButtons.forEach((btn)=>btn.addEventListener("click",()=>applyLanguage(btn.dataset.lang)));
+menuTabs.forEach((tab)=>{tab.addEventListener("click",()=>{const target=tab.dataset.target;menuTabs.forEach((item)=>item.classList.remove("active"));menuPanels.forEach((panel)=>panel.classList.remove("active"));tab.classList.add("active");document.getElementById(target).classList.add("active")})});
+function setSlide(index){slides.forEach((slide,i)=>slide.classList.toggle("active",i===index));dots.forEach((dot,i)=>dot.classList.toggle("active",i===index))}
+dots.forEach((dot,index)=>dot.addEventListener("click",()=>setSlide(index)));
+let currentSlide=0;setInterval(()=>{currentSlide=(currentSlide+1)%slides.length;setSlide(currentSlide)},5000);
+const observer=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting)entry.target.classList.add("visible")})},{threshold:.14});
+reveals.forEach((item)=>observer.observe(item));
+menuToggle.addEventListener("click",()=>{navLinks.classList.toggle("open")});
+navLinks.querySelectorAll("a").forEach((link)=>link.addEventListener("click",()=>navLinks.classList.remove("open")));
+applyLanguage("az");
+</script>
+</body>
+</html>
