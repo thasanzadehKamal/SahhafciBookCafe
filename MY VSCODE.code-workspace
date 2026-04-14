@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../Downloads/cafe"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5504,
+		"liveServer.settings.multiRootWorkspaceName": "MY VSCODE"
+	}
+}
